@@ -1,10 +1,10 @@
-package ru.sbt;
+package ru.sbt.javaschool.lesson8_JUnit;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
+import ru.sbt.javaschool.lesson8_JUnit.Calculator;
 
-import java.lang.reflect.Array;
 import java.util.Arrays;
 
 import static org.junit.Assert.assertEquals;

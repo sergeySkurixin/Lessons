@@ -1,4 +1,4 @@
-package ru.sbt;
+package ru.sbt.javaschool.lesson8_JUnit;
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -11,5 +11,6 @@ public class CalculatorTest {
     public void testPlus() throws Exception {
         Calculator calculator = new Calculator();
         Assert.assertEquals(5, calculator.plus(2, 3));
+        Assert.assertEquals(5, calculator.plus(3, 3));// ошибка
     }
 }

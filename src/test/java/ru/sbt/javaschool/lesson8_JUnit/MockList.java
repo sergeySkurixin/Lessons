@@ -1,4 +1,4 @@
-package ru.sbt;
+package ru.sbt.javaschool.lesson8_JUnit;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
