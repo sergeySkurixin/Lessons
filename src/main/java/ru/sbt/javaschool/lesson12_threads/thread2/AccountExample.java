@@ -7,9 +7,15 @@ public class AccountExample implements Runnable {
     private Account acct = new Account();
 
     public synchronized /* если убрать, будет больно */void makeWithdrawal(int amt) throws InterruptedException {
-        if (acct.getBalance() >= amt) {
-            Thread.sleep(100);
-            acct.withdraw(amt);
+//        if (acct.getBalance() >= amt) {
+//            Thread.sleep(100);
+//            acct.withdraw(amt);
+//        }
+        synchronized (this) {
+            if (acct.getBalance() >= amt) {
+                Thread.sleep(100);
+                acct.withdraw(amt);
+            }
         }
     }
 
