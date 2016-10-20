@@ -25,6 +25,7 @@
         <module>threads</module>
         <module>sockets</module>
         <module>Patterns</module>
+        <module>Spring</module>
     </modules>
 
     <dependencies>

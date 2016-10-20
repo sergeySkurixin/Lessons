@@ -12,6 +12,7 @@ public class IntegerConverter implements ConverterTo<Integer> {
     @Override
     public Integer convert(Object valueFrom) {
         ConverterValue converterValue = converters.get(valueFrom.getClass());
-        return converterValue.convert(valueFrom);
+        //return converterValue.convert(valueFrom);
+        return 0;
     }
 }
