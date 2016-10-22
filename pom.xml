@@ -26,6 +26,7 @@
         <module>sockets</module>
         <module>Patterns</module>
         <module>Spring</module>
+        <module>Sql</module>
     </modules>
 
     <dependencies>
