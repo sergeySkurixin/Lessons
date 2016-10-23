@@ -3,7 +3,6 @@ package ru.sbt.sql.lessons;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.util.concurrent.Callable;
 
 /**
  * Created by SBTJavastudent on 22.10.2016.
@@ -16,14 +15,12 @@ public class JdbcTemplate {
         this.url = url;
     }
 
-    <T> T execute(JdbcAction<T> action) throws Exception {
-        try (Connection connection = openConnection()) {
+    <T> T execute(JdbcAction<T> action){
+        try (Connection connection = DriverManager.getConnection(url)) {
             return action.execute(connection);
+        }catch (Exception e) {
+            throw new IllegalStateException("Execute error", e);
         }
-    }
-
-    private Connection openConnection() throws SQLException {
-        return DriverManager.getConnection(url);
     }
 
     public interface JdbcAction<T> {

@@ -17,9 +17,17 @@ public class User {
         this.passwordMd5 = passwordMd5;
     }
 
+    public User(String login) {
+        this.login=login;
+    }
+
     @Override
     public String toString() {
-        return super.toString();
+        return "User{" +
+                "id=" + id +
+                ", login='" + login + '\'' +
+                ", passwordMd5='" + passwordMd5 + '\'' +
+                '}';
     }
 
     public Long getId() {

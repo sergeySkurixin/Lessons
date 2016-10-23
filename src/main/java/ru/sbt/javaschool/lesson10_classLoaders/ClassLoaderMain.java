@@ -14,7 +14,7 @@ public class ClassLoaderMain {
 //        Object obj = ClassLoaderMain.class.getClassLoader()
 //                .loadClass("ru.sbt.javaschool.lesson10_classLoaders.Person").newInstance();
 //        Person person1 = (Person) obj;
-        MyClassLoader urlClassLoader = new MyClassLoader(new URL[]{new URL("file:///D:/tmp/")});
+        MyClassLoader urlClassLoader = new MyClassLoader(new URL[]{new URL("file:///D:/root_for_java_classes/")});
         Object obj1 = urlClassLoader.loadClass("ru.sbt.javaschool.lesson10_classLoaders.Person").newInstance();
 //        Person person2 = (Person) obj1;
 
@@ -35,7 +35,7 @@ public class ClassLoaderMain {
         }
 
         @Override
-        public Class<?> loadClass(String name, boolean resolve) throws ClassNotFoundException {
+        public Class<?> loadClass(String name) throws ClassNotFoundException {
             if ("ru.sbt.javaschool.lesson10_classLoaders.Person".equals(name)) {
                 return findClass(name);
             }

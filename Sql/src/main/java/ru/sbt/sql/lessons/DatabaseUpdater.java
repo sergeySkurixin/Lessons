@@ -19,8 +19,9 @@ import java.sql.Statement;
  */
 public class DatabaseUpdater {
 
-    public static void main(String[] args) throws SQLException, IOException, IllegalAccessException {
-        new DatabaseUpdater().executeScript("C:\\Users\\SBTJavastudent\\IdeaProjects\\Lessons\\Sql\\src\\main\\sql\\user.sql");
+    public static void main(String[] args) throws Exception {
+//        new DatabaseUpdater().executeScript("C:\\Users\\SBTJavastudent\\IdeaProjects\\Lessons\\Sql\\src\\main\\sql\\user.sql");
+        new DatabaseUpdater().executeScript("Sql/sql/user.sql");
 
     }
 
@@ -31,17 +32,20 @@ public class DatabaseUpdater {
             executeSql(sqlScript);
 
         } catch (SQLException e) {
+            throw new IllegalArgumentException("Bad script: " + filename, e);
+        } catch (IOException e) {
+            throw new IllegalArgumentException("Can't read file: " + filename, e);
         }
     }
 
     private static void executeSql(String sql) throws SQLException {
-        try(Connection connection = DriverManager.getConnection("jdbc:h2:C:\\Users\\SBTJavastudent\\IdeaProjects\\Lessons\\Sql\\database\\app");
+        try(Connection connection = DriverManager.getConnection("jdbc:h2:C:/Users/скурихин/IdeaProjects/Lessons//Sql/database/app");
             Statement statement = connection.createStatement()){
             boolean execute = statement.execute(sql);
-            System.out.println("-------------");
-            System.out.println("State:");
-
-
+            System.out.println("---------------------------------");
+            System.out.println("State:" + execute);
+            System.out.println("SQL: " + sql);
+            System.out.println("---------------------------------");
         }
     }
 }
