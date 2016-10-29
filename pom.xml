@@ -27,6 +27,7 @@
         <module>Patterns</module>
         <module>Spring</module>
         <module>Sql</module>
+        <module>SpringJdbc</module>
     </modules>
 
     <dependencies>
