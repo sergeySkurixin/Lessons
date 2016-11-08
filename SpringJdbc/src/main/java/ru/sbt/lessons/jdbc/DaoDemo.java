@@ -13,12 +13,12 @@ public class DaoDemo {
     private final UserDaoImplWithJdbc userDaoImplWithJdbc;
 
     public DaoDemo(String url) {
-        JdbcTemplate jdbcTemplate = new JdbcTemplate("jdbc:h2:D:/сбт/jdbc/database/app");
+        JdbcTemplate jdbcTemplate = new JdbcTemplate(url);
         userDaoImplWithJdbc = new UserDaoImplWithJdbc(jdbcTemplate);
     }
 
     public static void main(String[] args) throws Exception {
-        DaoDemo daoDemo = new DaoDemo("jdbc:h2:D:/сбт/jdbc/database/app");
+        DaoDemo daoDemo = new DaoDemo("jdbc:h2:./SpringJdbc/database/app");
         daoDemo.findByLogin("root");
     }
 

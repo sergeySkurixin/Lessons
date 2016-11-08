@@ -9,7 +9,7 @@ import java.util.Optional;
  * Created by SBTJavastudent on 22.10.2016.
  */
 public class DaoDemo {
-private final UserDao userDao;
+    private final UserDao userDao;
 
     public DaoDemo(String url) {
         JdbcTemplate jdbcTemplate = new JdbcTemplate(url);
@@ -17,16 +17,16 @@ private final UserDao userDao;
     }
 
     public static void main(String[] args) throws Exception {
-        DaoDemo daoDemo = new DaoDemo("jdbc:h2:C:/Users/скурихин/IdeaProjects/Lessons//Sql/database/app");
+        DaoDemo daoDemo = new DaoDemo("jdbc:h2:./Sql/database/app");
         daoDemo.listUsers();
-        daoDemo.createUsers("root","password");
+        daoDemo.createUsers("root", "password");
         daoDemo.listUsers();
         daoDemo.removeUser(new User("root"));
         daoDemo.listUsers();
 
     }
 
-    private void removeUser(User user){
+    private void removeUser(User user) {
         System.out.println("**************");
         boolean result = userDao.remove(user.getLogin());
         System.out.println("****************** Remove end. result: " + result);
@@ -39,7 +39,7 @@ private final UserDao userDao;
         String md5Hex = DigestUtils.md5Hex(password);
         user.setPasswordMd5(md5Hex);
         boolean result = userDao.create(user);
-        System.out.println("****************** Create end. result: " + result);
+        System.out.println("****************** Create user \"" + login + "\" end. result: " + result);
     }
 
     private void listUsers() throws Exception {

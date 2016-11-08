@@ -21,7 +21,7 @@ public class DatabaseUpdater {
 
     public static void main(String[] args) throws Exception {
 //        new DatabaseUpdater().executeScript("C:\\Users\\SBTJavastudent\\IdeaProjects\\Lessons\\Sql\\src\\main\\sql\\user.sql");
-        new DatabaseUpdater().executeScript("Sql/sql/user.sql");
+        new DatabaseUpdater().executeScript("./Sql/sql/user.sql");
 
     }
 
@@ -39,7 +39,7 @@ public class DatabaseUpdater {
     }
 
     private static void executeSql(String sql) throws SQLException {
-        try(Connection connection = DriverManager.getConnection("jdbc:h2:C:/Users/скурихин/IdeaProjects/Lessons//Sql/database/app");
+        try(Connection connection = DriverManager.getConnection("jdbc:h2:./Sql/database/app");
             Statement statement = connection.createStatement()){
             boolean execute = statement.execute(sql);
             System.out.println("---------------------------------");

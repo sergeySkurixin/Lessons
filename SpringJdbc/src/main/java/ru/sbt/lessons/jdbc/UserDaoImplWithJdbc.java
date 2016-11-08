@@ -19,6 +19,7 @@ public class UserDaoImplWithJdbc implements UserDao {
         this.jdbcTemplate = jdbcTemplate;
     }
 
+    @Override
     public Optional<User> findByLogin(String login) {
         return jdbcTemplate.execute(connection -> {
 
@@ -42,6 +43,7 @@ public class UserDaoImplWithJdbc implements UserDao {
         });
     }
 
+    @Override
     public boolean create(User user) {
         return jdbcTemplate.execute(connection -> {
             PreparedStatement statement = connection.prepareStatement(
@@ -54,10 +56,12 @@ public class UserDaoImplWithJdbc implements UserDao {
         });
     }
 
+    @Override
     public boolean update(User user) {
         return false;
     }
 
+    @Override
     public List<User> list() {
         return jdbcTemplate.execute(connection -> {
             try (Statement statement = connection.createStatement();

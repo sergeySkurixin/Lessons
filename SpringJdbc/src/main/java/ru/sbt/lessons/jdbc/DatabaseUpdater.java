@@ -1,7 +1,6 @@
 package ru.sbt.lessons.jdbc;
 
 import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.IOUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -10,13 +9,10 @@ import java.sql.DriverManager;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-/**
- * Created by User on 22.10.2016.
- */
 public class DatabaseUpdater {
 
     public static void main(String[] args) throws Exception {
-        new DatabaseUpdater().executeScript("sql/user.sql");
+        new DatabaseUpdater().executeScript("SpringJdbc/sql/user.sql");
     }
 
     public void executeScript(String fileName) {
@@ -32,7 +28,7 @@ public class DatabaseUpdater {
 
     private void executeSql(String sql) throws SQLException {
         try (Connection connection =
-                     DriverManager.getConnection("jdbc:h2:D:/сбт/jdbc/database/app");
+                     DriverManager.getConnection("jdbc:h2:./SpringJdbc/database/app");
              Statement statement = connection.createStatement()) {
             boolean execute = statement.execute(sql);
             System.out.println("---------------------------------");
