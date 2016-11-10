@@ -21,7 +21,7 @@ public class Application {
 
         UserDao userDao = context.getBean(UserDao.class);
 
-        boolean result = userDao.create(new User(15L, "root", DigestUtils.md5Hex("1")));
+        boolean result = userDao.create(new User(null, "user2", DigestUtils.md5Hex("password")));
         System.out.println(result);
     }
 }

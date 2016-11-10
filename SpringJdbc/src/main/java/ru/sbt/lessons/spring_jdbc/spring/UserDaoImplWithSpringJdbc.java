@@ -49,8 +49,8 @@ public class UserDaoImplWithSpringJdbc implements UserDao {
     public boolean create(User user) {
 
         SqlParameterSource params = new BeanPropertySqlParameterSource(user);
-        int result = jdbcTemplate.update("insert into user (login,password_hash)+" +
-                "values(:login,:passwordHash)", params);
+        int result = jdbcTemplate.update("insert into user (login, password_hash) " +
+                "values(:login, :passwordMd5)", params);
         return result == 1;
     }
 

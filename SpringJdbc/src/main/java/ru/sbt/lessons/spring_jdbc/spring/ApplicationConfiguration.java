@@ -10,6 +10,7 @@ import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import javax.sql.DataSource;
 
 @Configuration
+@ComponentScan
 public class ApplicationConfiguration {
     @Bean
     public DataSource dataSource() {
